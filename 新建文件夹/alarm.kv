@@ -1,0 +1,37 @@
+BoxLayout:
+    orientation: 'vertical'
+    font_name: 'font.otf'
+
+    Label:
+        text: '我的闹钟'
+        font_size: '24sp'
+        size_hint_y: 0.1
+        color: 1,1,1,1
+        font_name: 'font.otf'
+        canvas.before:
+            Color:
+                rgba: 0.2, 0.6, 0.9, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+    ScrollView:
+        size_hint_y: 0.7
+        GridLayout:
+            id: alarm_list
+            cols: 1
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: 5
+            padding: 10
+
+    BoxLayout:
+        size_hint_y: 0.1
+        Button:
+            text: '添加闹钟'
+            font_name: 'font.otf'
+            on_release: app.show_add_dialog()
+        Button:
+            text: '退出'
+            font_name: 'font.otf'
+            on_release: app.stop()
