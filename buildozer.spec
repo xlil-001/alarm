@@ -11,6 +11,7 @@ version = 0.1
 
 android.accept_sdk_license = True
 android.build_tools_version = 34.0.0
+android.python_version = 3.10
 
 requirements = python3,kivy,plyer,pyjnius,ffpyplayer
 
