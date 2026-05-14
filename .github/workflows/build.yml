@@ -25,17 +25,7 @@ jobs:
           autoconf libtool pkg-config zlib1g-dev libncurses5-dev \
           libncursesw5-dev cmake libffi-dev libssl-dev \
           libc6-i386 lib32z1 lib32stdc++6
-        # 安装系统级的 Android build-tools（提供 aidl 等）
-        sudo apt install -y google-android-build-tools-34-installer || true
-        # 升级 buildozer 到最新版（修复了 aidl 路径问题）
         pip3 install --upgrade Cython buildozer
-
-    - name: Debug file list
-      run: |
-        echo "=== Project files ==="
-        ls -la
-        echo "=== Buildozer spec check ==="
-        if [ -f buildozer.spec ]; then echo "buildozer.spec exists"; else echo "MISSING buildozer.spec"; fi
 
     - name: Build APK
       run: |
