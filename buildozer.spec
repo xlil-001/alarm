@@ -4,7 +4,10 @@ title = My Alarm
 package.name = myalarm
 package.domain = org.test
 
+source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,mp3,otf,ttf,json
+
+version = 0.1
 
 requirements = python3,kivy,plyer,pyjnius,ffpyplayer
 
