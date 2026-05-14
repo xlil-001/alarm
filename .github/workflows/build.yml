@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04          # 改用旧版 Ubuntu，兼容性更好
 
     steps:
     - uses: actions/checkout@v3
@@ -22,9 +22,12 @@ jobs:
         sudo dpkg --add-architecture i386
         sudo apt update
         sudo apt install -y python3-pip git zip unzip openjdk-17-jdk \
-          autoconf libtool pkg-config zlib1g-dev libncurses5-dev \
+          autoconf2.69 libtool-bin pkg-config zlib1g-dev libncurses5-dev \
           libncursesw5-dev cmake libffi-dev libssl-dev \
           libc6-i386 lib32z1 lib32stdc++6
+        # 使用旧版 autoconf 和 automake
+        sudo update-alternatives --install /usr/bin/autoconf autoconf /usr/bin/autoconf2.69 100
+        sudo apt install -y automake-1.16
         pip3 install --upgrade Cython buildozer
 
     - name: Build APK
