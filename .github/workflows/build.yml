@@ -24,7 +24,10 @@ jobs:
         sudo apt install -y python3-pip git zip unzip openjdk-17-jdk \
           autoconf libtool pkg-config zlib1g-dev libncurses5-dev \
           libncursesw5-dev cmake libffi-dev libssl-dev \
-          libc6-i386 lib32z1 lib32stdc++6
+          libc6-i386 lib32z1 lib32stdc++6 \
+          libavcodec-dev libavformat-dev libswscale-dev \
+          libavutil-dev libavdevice-dev libavfilter-dev \
+          libpostproc-dev libswresample-dev
         pip3 install --upgrade Cython buildozer
 
     - name: Build APK
